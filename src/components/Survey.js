@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class Survey extends Component {
 
@@ -31,13 +32,22 @@ class Survey extends Component {
     }
 
     render(){
-        let style = {marginTop:"0px"}; //adjust this to control the blank space
+        let style = {marginTop:"40px"}; //adjust this to control the blank space
+        let inputStyle = {marginLeft:"60px", width:"200px", borderColor:"#A7A7A7"};
+
         return(
             <div id="search" style={style}>
+
+                <form>
+                    <input id="q1" type="text" name="q1" className="form-control" style={inputStyle} /><br/>
+                </form>
+
+
+
                 <div className="navbar-form">
                     <input type="text" value={this.state.searchText} onChange={(event) => this.onHandleChange(event)} onKeyPress={(e) => this.onKeyStroke(e)}
-                           className="form-control" name="search" style={{width:"200px",borderColor:"#A7A7A7"}} placeholder={this.props.placeholder}/>
-                    <button className="btn btn-primary" onClick={() => this.onButtonPress()} style={{backgroundColor:"#00A2D5",borderColor:"#A7A7A7"}} type="button">Submit</button>
+                           className="form-control" name="search" style={inputStyle} placeholder={this.props.placeholder}/>
+                    <button className="btn btn-primary" onClick={() => this.onButtonPress()} style={{backgroundColor:"#0c0a22",borderColor:"#A7A7A7"}} type="button">Submit</button>
                 </div>
             </div>
         );
@@ -46,3 +56,7 @@ class Survey extends Component {
 }
 
 export default Survey;
+
+Survey.propTypes = {
+
+};

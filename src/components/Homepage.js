@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class Homepage extends Component {
 
@@ -17,3 +18,7 @@ class Homepage extends Component {
 }
 
 export default Homepage;
+
+Homepage.propTypes = {
+
+};
