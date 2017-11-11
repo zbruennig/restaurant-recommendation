@@ -6,12 +6,97 @@ class Survey extends Component {
     constructor(props){
         super();
         this.state = {
-            searchText: ""
+            email: "",
+            spicy: "",
+            oil: ""
         };
     }
 
+    getChecked(id){
+        return document.getElementById(id).checked;
+    }
+
+    validate(){
+
+        //TODO: Validate Email as well
+
+        var errors = "";
+
+        if(this.getChecked("none") | this.getChecked("mild") | this.getChecked("hot") | this.getChecked("spicy")){
+            this.state.spicy = document.querySelector('input[name="spicy"]:checked').value;
+        }
+        else{
+            errors+="Must select a spice level.\n";
+        }
+
+        if(this.getChecked("yes") | this.getChecked("no")){
+            this.state.oil = document.querySelector('input[name="spicy"]:checked').value;
+        }
+        else{
+            errors+="Must select oil-fried preference\n";
+        }
+
+        if(errors === ""){
+            return true;
+        }
+        else{
+            alert(errors);
+            return false;
+        }
+    }
+
     submit(){
-        alert(this.state.searchText);
+        if(this.validate()){
+
+            //can probably be optimized a LOT
+
+            let cuisines = [];
+
+            if(this.getChecked("asian")){
+                cuisines.push("Asian");
+            }
+            if(this.getChecked("mexican")){
+                cuisines.push("Mexican");
+            }
+            if(this.getChecked("italian")){
+                cuisines.push("Italian");
+            }
+            if(this.getChecked("indian")){
+                cuisines.push("Indian");
+            }
+
+            let allergies = [];
+
+            if(this.getChecked("peanuts")){
+                allergies.push("Peanuts");
+            }
+            if(this.getChecked("milk")){
+                allergies.push("Milk");
+            }
+            if(this.getChecked("gluten")){
+                allergies.push("Gluten");
+            }
+            if(this.getChecked("eggs")){
+                allergies.push("Eggs");
+            }
+
+            let diet = [];
+
+            if(this.getChecked("vegan")){
+                diet.push("Vegan");
+            }
+            if(this.getChecked("vegetarian")){
+                diet.push("Vegetarian");
+            }
+
+            let email = this.state.email,
+                spicy = this.state.spicy,
+                oil = this.state.oil;
+
+
+            alert(cuisines+" "+allergies+" "+spicy+" "+diet+" "+oil+" "+email);
+            //CALL SQL STUFF FROM HERE!
+        }
     }
 
     onKeyStroke(e) {
@@ -25,7 +110,7 @@ class Survey extends Component {
 
     onHandleChange(event){
         this.setState({
-            searchText: event.target.value
+            email: event.target.value
         })
     }
 
@@ -42,52 +127,52 @@ class Survey extends Component {
                         <div>
                             <h4>What types of cuisine do you prefer?</h4>
                             <ul className="list-inline">
-                                <li><input type="checkbox" name="cuisine" value="Asian"/> Asian<br/></li>
-                                <li><input type="checkbox" name="cuisine" value="Mexican"/> Mexican<br/></li>
-                                <li><input type="checkbox" name="cuisine" value="Italian"/> Italian<br/></li>
-                                <li><input type="checkbox" name="cuisine" value="Indian"/> Indian<br/></li>
+                                <li><input type="checkbox" id = "asian" name="asian" value="asian"/> Asian<br/></li>
+                                <li><input type="checkbox" id = "mexican" name="mexican" value="mexican"/> Mexican<br/></li>
+                                <li><input type="checkbox" id = "italian" name="italian" value="italian"/> Italian<br/></li>
+                                <li><input type="checkbox" id = "indian" name="indian" value="indian"/> Indian<br/></li>
                             </ul>
                             <br/>
                         </div>
                         <div>
                             <h4>List any allergies you have:</h4>
                             <ul className="list-inline">
-                                <li><input type="checkbox" name="allergies" value="Peanuts"/> Peanuts<br/></li>
-                                <li><input type="checkbox" name="allergies" value="Milk"/> Milk<br/></li>
-                                <li><input type="checkbox" name="allergies" value="Gluten"/> Gluten<br/></li>
-                                <li><input type="checkbox" name="allergies" value="Eggs"/> Eggs<br/></li>
+                                <li><input type="checkbox" id="peanuts" name="peanuts" value="peanuts"/> Peanuts<br/></li>
+                                <li><input type="checkbox" id="milk" name="milk" value="milk"/> Milk<br/></li>
+                                <li><input type="checkbox" id="gluten" name="gluten" value="gluten"/> Gluten<br/></li>
+                                <li><input type="checkbox" id="eggs" name="eggs" value="eggs"/> Eggs<br/></li>
                             </ul>
                             <br/>
                         </div>
                         <div>
                             <h4>What level of spice do you prefer?</h4>
                             <ul className="list-inline">
-                                <li><input type="radio" name="spice" value="None"/> None<br/></li>
-                                <li><input type="radio" name="spice" value="Mild"/> Mild<br/></li>
-                                <li><input type="radio" name="spice" value="Hot"/> Hot<br/></li>
-                                <li><input type="radio" name="spice" value="Spicy"/> Spicy<br/></li>
+                                <li><input type="radio" id="none" name="spicy" value="None"/> None<br/></li>
+                                <li><input type="radio" id="mild" name="spicy" value="Mild"/> Mild<br/></li>
+                                <li><input type="radio" id="hot" name="spicy" value="Hot"/> Hot<br/></li>
+                                <li><input type="radio" id="spicy" name="spicy" value="Spicy"/> Spicy<br/></li>
                             </ul>
                             <br/>
                         </div>
                         <div>
                             <h4>Any diet preferences?</h4>
                             <ul className="list-inline">
-                                <li><input type="checkbox" name="diet" value="Vegan"/>Vegan</li>
-                                <li><input type="checkbox" name="diet" value="Vegetarian"/>Vegetarian</li>
+                                <li><input type="checkbox" id="vegan" name="vegetarian" value="vegan"/>Vegan</li>
+                                <li><input type="checkbox" id="vegetarian" name="vegetarian" value="vegetarian"/>Vegetarian</li>
                             </ul>
                             <br/>
                         </div>
                         <div>
                             <h4>Do you prefer oil-fried food?</h4>
                             <ul className="list-inline">
-                                <li><input type="radio" name="oil" value="Yes"/>Yes</li>
-                                <li><input type="radio" name="oil" value="No"/>No</li>
+                                <li><input type="radio" id="yes" name="oil" value="Yes"/>Yes</li>
+                                <li><input type="radio" id="no" name="oil" value="No"/>No</li>
                             </ul>
                             <br/>
                         </div>
                         <div>
                             <h4>Input your email:</h4>
-                            <input type="text" value={this.state.searchText} onChange={(event) => this.onHandleChange(event)} onKeyPress={(e) => this.onKeyStroke(e)}
+                            <input type="text" value={this.state.email} onChange={(event) => this.onHandleChange(event)} onKeyPress={(e) => this.onKeyStroke(e)}
                                    className="form-control" name="email" style={inputStyle} placeholder={this.props.placeholder}/>
                             <button className="btn btn-primary" onClick={() => this.onButtonPress()} style={{backgroundColor:"#0c0a22",borderColor:"#A7A7A7"}} type="button">Submit</button>
                         </div>
