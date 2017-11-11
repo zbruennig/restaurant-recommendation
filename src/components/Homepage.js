@@ -11,7 +11,7 @@ class Homepage extends Component {
 
         return(
             <div>
-                This is the home page component!
+                This is the home page component! <br />
             </div>
         );
     }

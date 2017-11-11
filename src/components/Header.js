@@ -29,7 +29,7 @@ class Header extends Component {
                                 </li>
                                 <li className="routing-button">
                                     <NavLink to={"/new"} className="navbar-brand" style = {colorStyle} onClick =
-                                    {() => createHistory.push("/new")} activeStyle = {activeStyle} >Survey
+                                    {() => createHistory.push("/new")} activeStyle = {activeStyle} >Profile
                                     </NavLink>
                                 </li>
                             </ul>
