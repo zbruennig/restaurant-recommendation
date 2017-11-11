@@ -7,7 +7,7 @@ class Order extends Component{
 
         return(
             <div>
-
+                This is the Order component!
             </div>
         )
     }

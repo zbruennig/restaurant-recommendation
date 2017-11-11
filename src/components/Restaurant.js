@@ -7,7 +7,7 @@ class Restaurant extends Component {
 
         return(
             <div>
-
+                This is the Restaurant component!
             </div>
         )
     }
