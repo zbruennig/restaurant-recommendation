@@ -6,6 +6,8 @@ import {BrowserRouter as Router, Route} from "react-router-dom";
 import Survey from './components/Survey';
 import Header from './components/Header';
 import Homepage from './components/Homepage';
+import Order from './components/Order';
+import Restaurant from './components/Restaurant';
 
 class App extends Component {
   render() {
@@ -16,7 +18,9 @@ class App extends Component {
                 <div>
                     <Route exact path = "/" render={(props) => <Homepage/>} />
                     <Route path="/home" render={(props) => <Homepage/>} />
-                    <Route path="/new" render={(props) => <Survey /*prop1 = {variable} prop2 = {variable} */ />} />
+                    <Route path="/new" render={(props) => <Survey />} />
+                    <Route path="/order" render={(props) => <Order />} />
+                    <Route path="/restaurant" render={(props) => <Restaurant /> } />
                 </div>
             </Router>
         </div>

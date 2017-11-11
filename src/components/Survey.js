@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+var mysql = require('mysql');
+
 class Survey extends Component {
 
     constructor(props){
@@ -93,9 +95,6 @@ class Survey extends Component {
                 spicy = this.state.spicy,
                 oil = this.state.oil;
 
-
-            alert(cuisines+" "+allergies+" "+spicy+" "+diet+" "+oil+" "+email);
-            //CALL SQL STUFF FROM HERE!
         }
     }
 

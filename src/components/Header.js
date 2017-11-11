@@ -32,6 +32,16 @@ class Header extends Component {
                                     {() => createHistory.push("/new")} activeStyle = {activeStyle} >Profile
                                     </NavLink>
                                 </li>
+                                <li className="routing-button">
+                                    <NavLink to={"/order"} className="navbar-brand" style = {colorStyle} onClick =
+                                        {() => createHistory.push("/order")} activeStyle = {activeStyle}>Order
+                                    </NavLink>
+                                </li>
+                                <li className="routing-button">
+                                    <NavLink to={"/restaurant"} className="navbar-brand" style = {colorStyle} onClick =
+                                        {() => createHistory.push("/restaurant")} activeStyle = {activeStyle}>Restaurant
+                                    </NavLink>
+                                </li>
                             </ul>
                         </div>
                     </Router>
