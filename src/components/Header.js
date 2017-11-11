@@ -17,7 +17,6 @@ class Header extends Component {
 
         return(
             <header style={backgroundStyle}>
-                {/*<div style = {{color:"#fff"}}>This is the header component!</div>*/}
                 <nav>
                     <Router history = {createHistory}>
                         <div>

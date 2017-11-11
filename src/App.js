@@ -8,6 +8,7 @@ import Header from './components/Header';
 import Homepage from './components/Homepage';
 import Order from './components/Order';
 import Restaurant from './components/Restaurant';
+import RamenBowls from "./components/restaurants/RamenBowls";
 
 class App extends Component {
   render() {
@@ -21,6 +22,7 @@ class App extends Component {
                     <Route path="/new" render={(props) => <Survey />} />
                     <Route path="/order" render={(props) => <Order />} />
                     <Route path="/restaurant" render={(props) => <Restaurant /> } />
+                    <Route path="/restaurant/ramen-bowls" render={(props) => <RamenBowls/>} />
                 </div>
             </Router>
         </div>

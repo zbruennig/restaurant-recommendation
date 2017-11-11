@@ -31,6 +31,7 @@
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   </head>
   <body>
+
     <noscript>
       You need to enable JavaScript to run this app.
     </noscript>
@@ -45,5 +46,20 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+
+    <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyDC_pfB25t82inc-DNCb4Crpnbhr-YZ52s",
+            authDomain: "restaurants-78eeb.firebaseapp.com",
+            databaseURL: "https://restaurants-78eeb.firebaseio.com",
+            projectId: "restaurants-78eeb",
+            storageBucket: "",
+            messagingSenderId: "129909027933"
+        };
+        firebase.initializeApp(config);
+    </script>
+
   </body>
 </html>

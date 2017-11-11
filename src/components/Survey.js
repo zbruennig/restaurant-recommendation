@@ -8,7 +8,7 @@ class Survey extends Component {
     constructor(props){
         super();
         this.state = {
-            email: "",
+            user: "",
             spicy: "",
             oil: ""
         };
@@ -20,8 +20,6 @@ class Survey extends Component {
 
     validate(){
 
-        //TODO: Validate Email as well
-
         var errors = "";
 
         if(this.getChecked("none") | this.getChecked("mild") | this.getChecked("hot") | this.getChecked("spicy")){
@@ -32,7 +30,7 @@ class Survey extends Component {
         }
 
         if(this.getChecked("yes") | this.getChecked("no")){
-            this.state.oil = document.querySelector('input[name="spicy"]:checked').value;
+            this.state.oil = document.querySelector('input[name="oil"]:checked').value;
         }
         else{
             errors+="Must select oil-fried preference\n";
@@ -91,10 +89,13 @@ class Survey extends Component {
                 diet.push("Vegetarian");
             }
 
-            let email = this.state.email,
+            let user = this.state.user,
                 spicy = this.state.spicy,
                 oil = this.state.oil;
 
+            let object = {id:user, allergy:allergies, spice:spicy, diet:diet, fried:oil};
+
+            console.log(object);
         }
     }
 
@@ -109,7 +110,7 @@ class Survey extends Component {
 
     onHandleChange(event){
         this.setState({
-            email: event.target.value
+            user: event.target.value
         })
     }
 
@@ -170,9 +171,9 @@ class Survey extends Component {
                             <br/>
                         </div>
                         <div>
-                            <h4>Input your email:</h4>
-                            <input type="text" value={this.state.email} onChange={(event) => this.onHandleChange(event)} onKeyPress={(e) => this.onKeyStroke(e)}
-                                   className="form-control" name="email" style={inputStyle} placeholder={this.props.placeholder}/>
+                            <h4>Input your username:</h4>
+                            <input type="text" value={this.state.user} onChange={(event) => this.onHandleChange(event)} onKeyPress={(e) => this.onKeyStroke(e)}
+                                   className="form-control" name="user" style={inputStyle} placeholder={this.props.placeholder}/>
                             <button className="btn btn-primary" onClick={() => this.onButtonPress()} style={{backgroundColor:"#0c0a22",borderColor:"#A7A7A7"}} type="button">Submit</button>
                         </div>
                     </form>
