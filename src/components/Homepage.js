@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class Homepage extends Component {
 
@@ -10,10 +11,14 @@ class Homepage extends Component {
 
         return(
             <div>
-                This is the home page component!
+                This is the home page component! <br />
             </div>
         );
     }
 }
 
 export default Homepage;
+
+Homepage.propTypes = {
+
+};
