@@ -31,13 +31,13 @@ class Survey extends Component {
     }
 
     render(){
-        let style = {marginTop:"35px"}; //adjust this to control the blank space
+        let style = {marginTop:"0px"}; //adjust this to control the blank space
         return(
             <div id="search" style={style}>
                 <div className="navbar-form">
                     <input type="text" value={this.state.searchText} onChange={(event) => this.onHandleChange(event)} onKeyPress={(e) => this.onKeyStroke(e)}
                            className="form-control" name="search" style={{width:"200px",borderColor:"#A7A7A7"}} placeholder={this.props.placeholder}/>
-                    <button className="btn btn-primary" onClick={() => this.onButtonPress()} style={{backgroundColor:"#00A2D5",borderColor:"#A7A7A7"}} type="button">Search</button>
+                    <button className="btn btn-primary" onClick={() => this.onButtonPress()} style={{backgroundColor:"#00A2D5",borderColor:"#A7A7A7"}} type="button">Submit</button>
                 </div>
             </div>
         );
