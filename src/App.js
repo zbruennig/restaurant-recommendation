@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import fire from './fire';
 import './App.css';
 import createHistory from "history/createBrowserHistory";
 import {BrowserRouter as Router, Route} from "react-router-dom";

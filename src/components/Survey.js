@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import fire from './../fire';
 
 var mysql = require('mysql');
 
@@ -95,7 +96,17 @@ class Survey extends Component {
 
             let object = {id:user, allergy:allergies, spice:spicy, diet:diet, fried:oil};
 
-            console.log(object);
+            // console.log(object);
+            fire.database().ref('preferences').push(object);
+
+            var ref = fire.database().ref('preferences');
+
+            let messagesRef = fire.database().ref('preferences').orderByKey().limitToLast(100);
+            messagesRef.on('child_added', snapshot => {
+                let message = { text: snapshot.val(), id: snapshot.key };
+                console.log({ messages: [message].concat(this.state.messages).text });
+            })
+
         }
     }
 
