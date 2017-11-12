@@ -7,24 +7,38 @@ class Homepage extends Component {
     constructor(props){
         super();
         this.state = {
-            messages: []
+            messages: ["1"]
         };
+
+        this.add = this.add.bind(this);
+    }
+
+    add(){
+        var preferencesRef = fire.database().ref('preferences');
+
+        var x = preferencesRef.orderByKey();
+        x.on('child_added', function(snapshot) {
+            var obj = snapshot.val();
+            // this.state.message.push(obj);
+        });
+
+        // var self = this;
+        //
+        // preferencesRef.on('value', function(snapshot) {
+        //     snapshot.forEach(function(childSnapshot){
+        //         var childData = childSnapshot.val();
+        //         this.state.messages.push(childData);
+        //     });
+        // });
     }
 
     render(){
 
-        var preferencesRef = fire.database().ref('preferences');
-
-        preferencesRef.on('value', function(snapshot) {
-            snapshot.forEach(function(childSnapshot){
-                var childData = childSnapshot.val();
-                console.log(childData);
-            });
-        });
+        this.add()
 
         return(
             <div>
-                {this.state.messages}
+                {/*{this.state.messages}*/}
             </div>
         );
     }
