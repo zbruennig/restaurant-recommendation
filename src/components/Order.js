@@ -1,16 +1,14 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 
-class Order extends Component{
-
-    render(){
-
-        return(
-            <div>
+class Order extends Component {
+  render () {
+    return (
+      <div>
                 This is the Order component!
             </div>
-        )
-    }
+    )
+  }
 }
 
-export default Order;
+export default Order
