@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "aws-sdk": "^2.149.0",
+    "aws-sdk": "^2.814.0",
     "f": "^1.4.0",
     "firebase": "^4.6.2",
     "mysql": "^2.15.0",
