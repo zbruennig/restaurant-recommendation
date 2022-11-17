@@ -12,7 +12,7 @@
     "react": "^16.1.0",
     "react-dom": "^16.1.0",
     "react-router-dom": "^4.2.2",
-    "react-scripts": "1.0.17",
+    "react-scripts": "5.0.1",
     "reactfire": "^1.0.0",
     "sqlite": "^2.8.0",
     "sqlite3": "^3.1.13"
